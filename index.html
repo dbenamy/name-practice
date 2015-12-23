@@ -8,11 +8,6 @@
 
 		var PplCtrl = this;
 		
-		PplCtrl.stage = 'intro0';
-		PplCtrl.show = null;
-		PplCtrl.timer = null;
-		PplCtrl.secsLeft = null;
-
 		// I searched for random names and faces.
 		PplCtrl.pplDb = [
 			// Men
@@ -46,6 +41,7 @@
 			PplCtrl.pplDb.sort( function() { return 0.5 - Math.random() } );
 			PplCtrl.ppl = [PplCtrl.pplDb[0], PplCtrl.pplDb[1], PplCtrl.pplDb[2]];
 			PplCtrl.state = 'intro0';
+			PplCtrl.show = null;
 		};
 		PplCtrl.reset();
 
@@ -81,7 +77,6 @@
 
 <body ng-controller="PplCtrl as pplCtrl">
 	<button ng-click="pplCtrl.next()" autofocus="true">Next</button>
-	<button ng-click="pplCtrl.reset()">Reset</button>
 	<!-- <p>{{pplCtrl.state}}</p> -->
 	<p ng-show="pplCtrl.state == 'timer'">Go do something else for {{pplCtrl.secsLeft}}s.</p>
 	<table><tr>
